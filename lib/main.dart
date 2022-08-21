@@ -49,11 +49,54 @@ class RadioPlayerScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: const [
-          Text('Album art'),
-          Text("Radio Da'i"),
-          Text('Butuh, Tengaran, Kab. Semarang'),
-          Text('Play Button'),
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 300,
+                height: 300,
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(12)
+                ),
+                child: const Text('Album art'),
+              )
+            ],
+          ),
+          const Text(
+            "Radio Da'i",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+          const Text(
+            'Butuh - Tengaran - Kab. Semarang',
+            textAlign: TextAlign.center
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 64,
+                width: 64,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.grey
+                ),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.play_arrow_rounded,
+                    color: Colors.white,
+                    size: 36,
+                  ),
+                ),
+              )
+            ],
+          )
         ],
       ),
     );
