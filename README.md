@@ -1,6 +1,6 @@
-# radio_dai
+# Radio Da'i
 
-Radio Da'i
+<img src="https://user-images.githubusercontent.com/5361135/185782327-52cd229d-2345-412c-b142-3a3cfb3d6fbf.png" alt="drawing" width="300"/>
 
 ## Getting Started
 
