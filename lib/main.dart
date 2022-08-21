@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Radio Da'i",
       theme: ThemeData(
-        primarySwatch: Colors.blue
+        primarySwatch: Colors.teal
       ),
       home: const RadioPlayerScreen(),
     );
@@ -32,10 +32,28 @@ class RadioPlayerScreen extends StatelessWidget {
           IconButton(
             onPressed: () {},
               icon: const Icon(
-                Icons.search,
+                Icons.lightbulb,
+                color: Colors.white,
+              )
+          ),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.info_outline_rounded,
                 color: Colors.white,
               )
           )
+        ],
+      ),
+
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: const [
+          Text('Album art'),
+          Text("Radio Da'i"),
+          Text('Butuh, Tengaran, Kab. Semarang'),
+          Text('Play Button'),
         ],
       ),
     );
