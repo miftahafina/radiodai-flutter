@@ -27,20 +27,15 @@ class RadioPlayerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Radio Da'i"),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        // title: const Text("Radio Da'i"),
         actions: [
-          IconButton(
-            onPressed: () {},
-              icon: const Icon(
-                Icons.lightbulb,
-                color: Colors.white,
-              )
-          ),
           IconButton(
               onPressed: () {},
               icon: const Icon(
                 Icons.info_outline_rounded,
-                color: Colors.white,
+                color: Colors.teal,
               )
           )
         ],
@@ -90,6 +85,7 @@ class RadioPlayerScreen extends StatelessWidget {
                   onPressed: () {},
                   icon: const Icon(
                     Icons.play_arrow_rounded,
+                    // Icons.pause_rounded,
                     color: Colors.white,
                     size: 36,
                   ),
