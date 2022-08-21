@@ -48,50 +48,69 @@ class RadioPlayerScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: 300,
-                height: 300,
-                decoration: BoxDecoration(
-                  color: Colors.grey,
-                  borderRadius: BorderRadius.circular(12)
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  "images/album_art.jpg",
+                  fit: BoxFit.cover,
+                  height: 300,
+                  width: 300,
                 ),
-                child: const Text('Album art'),
               )
             ],
           ),
-          const Text(
-            "Radio Da'i",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold
+
+
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: const [
+                    Text(
+                      "Radio Da'i",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    Text(
+                        'Butuh - Tengaran - Kab. Semarang',
+                        textAlign: TextAlign.center
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 64,
+                      width: 64,
+                      decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.teal
+                      ),
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.play_arrow_rounded,
+                          // Icons.pause_rounded,
+                          color: Colors.white,
+                          size: 36,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 24,
+                )
+              ],
             ),
-          ),
-          const Text(
-            'Butuh - Tengaran - Kab. Semarang',
-            textAlign: TextAlign.center
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 64,
-                width: 64,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.grey
-                ),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.play_arrow_rounded,
-                    // Icons.pause_rounded,
-                    color: Colors.white,
-                    size: 36,
-                  ),
-                ),
-              )
-            ],
           )
         ],
       ),
