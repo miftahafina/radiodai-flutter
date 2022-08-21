@@ -4,6 +4,7 @@ void main() {
   runApp(const MyApp());
 }
 
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -15,13 +16,67 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal
       ),
-      home: const RadioPlayerScreen(),
+      home: const AboutScreen(),
     );
   }
 }
 
-class RadioPlayerScreen extends StatelessWidget {
-  const RadioPlayerScreen({Key? key}) : super(key: key);
+
+class AboutScreen extends StatelessWidget {
+  const AboutScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: const [
+            Text(
+              "Tentang",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold
+              ),
+            ),
+            SizedBox(
+              height: 18,
+            ),
+            Text(
+              "Radio Da'i merupakan evolusi dari sebuah nama, yakni Nida'ul Irsyad, yang berarti seruan yang membimbing.",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16
+              ),
+            ),
+            SizedBox(
+              height: 18,
+            ),
+            Text(
+              "Radio ini berdiri di bawah naungan Pesantren Islam Al-Irsyad Tengaran.",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 16
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+class PlayerScreen extends StatelessWidget {
+  const PlayerScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +87,11 @@ class RadioPlayerScreen extends StatelessWidget {
         // title: const Text("Radio Da'i"),
         actions: [
           IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.info_outline_rounded,
-                color: Colors.teal,
-              )
+            onPressed: () {},
+            icon: const Icon(
+              Icons.info_outline_rounded,
+              color: Colors.grey,
+            )
           )
         ],
       ),
@@ -79,8 +134,11 @@ class RadioPlayerScreen extends StatelessWidget {
                       height: 12,
                     ),
                     Text(
-                        'Butuh - Tengaran - Kab. Semarang',
-                        textAlign: TextAlign.center
+                      'Butuh - Tengaran - Kab. Semarang',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 14
+                      ),
                     ),
                   ],
                 ),
