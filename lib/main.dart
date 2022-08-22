@@ -94,8 +94,34 @@ class AboutScreen extends StatelessWidget {
 }
 
 
-class PlayerScreen extends StatelessWidget {
+class PlayerScreen extends StatefulWidget {
   const PlayerScreen({Key? key}) : super(key: key);
+
+  @override
+  State<PlayerScreen> createState() => _PlayerScreenState();
+}
+
+class _PlayerScreenState extends State<PlayerScreen> {
+  bool _isPlay = false;
+
+  Future<void> _togglePlay() async {
+    setState(() {
+      if (!_isPlay) {
+        _isPlay = true;
+        setSourceAudio();
+        player.resume();
+      } else {
+        _isPlay = false;
+        player.pause();
+      }
+    });
+  }
+
+  final player = AudioPlayer();
+
+  Future<void> setSourceAudio() async {
+    await player.setSourceUrl("https://pu.klikhost.com:7204/stream");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -106,15 +132,15 @@ class PlayerScreen extends StatelessWidget {
         // title: const Text("Radio Da'i"),
         actions: [
           IconButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const AboutScreen();
-              }));
-            },
-            icon: const Icon(
-              Icons.info_outline_rounded,
-              color: Colors.grey,
-            )
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const AboutScreen();
+                }));
+              },
+              icon: const Icon(
+                Icons.info_outline_rounded,
+                color: Colors.grey,
+              )
           )
         ],
       ),
@@ -180,12 +206,10 @@ class PlayerScreen extends StatelessWidget {
                                 color: Colors.teal
                             ),
                             child: IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.play_arrow_rounded,
-                                // Icons.pause_rounded,
-                                color: Colors.white,
-                                size: 36,
+                              onPressed: _togglePlay,
+                              icon: (_isPlay
+                                ? const Icon(Icons.pause_rounded, color: Colors.white, size: 36)
+                                : const Icon(Icons.play_arrow_rounded, color: Colors.white, size: 36)
                               ),
                             ),
                           )
@@ -205,4 +229,3 @@ class PlayerScreen extends StatelessWidget {
     );
   }
 }
-
